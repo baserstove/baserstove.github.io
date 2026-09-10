@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人网站制作 - 从零开始的自建网站完全指南</title>
+  <meta name="description" content="个人网站制作全流程指南：域名、空间、建站工具、内容规划、设计灵感、上线发布与常见问题。无论新手还是进阶者，都能找到从零开始自建个人网站的实用方法与建议。">
+  <meta name="keywords" content="个人网站制作, 个人网站, 建站教程, 个人博客, 网站设计, 域名注册, 网站搭建">
+  <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+  <style>
+    /* 全局重置与字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #f9fafc;
+      color: #1e2b3c;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 页眉 */
+    .site-header {
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      padding: 20px 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-mark {
+      background: #3d6ef9;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e2b3c;
+      letter-spacing: -0.02em;
+    }
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: #2a3f56;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .main-nav a:hover {
+      color: #3d6ef9;
+    }
+
+    /* 首屏 HERO */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+      padding: 70px 0 90px;
+      border-bottom: 1px solid #e5ebf3;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 480px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #0b1e32;
+    }
+    .hero-content h1 span {
+      color: #3d6ef9;
+    }
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #2a405c;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: 0.2s ease;
+    }
+    .btn-primary {
+      background: #3d6ef9;
+      color: #fff;
+      box-shadow: 0 12px 25px -8px rgba(61,110,249,0.4);
+    }
+    .btn-primary:hover {
+      background: #1e55e0;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #3d6ef9;
+      color: #3d6ef9;
+    }
+    .btn-outline:hover {
+      background: rgba(61,110,249,0.08);
+    }
+    .hero-visual {
+      flex: 1 1 360px;
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 30px 25px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
+      border: 1px solid #eef2f6;
+    }
+    .mock-browser {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #dce2ec;
+    }
+    .mock-bar {
+      background: #f2f5fa;
+      padding: 12px 20px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      border-bottom: 1px solid #dce2ec;
+    }
+    .mock-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .mock-url {
+      background: #fff;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      color: #5a6f84;
+      flex: 1;
+      margin-left: 8px;
+      border: 1px solid #e3eaf2;
+    }
+    .mock-content {
+      padding: 20px;
+      background: white;
+    }
+    .mock-line {
+      height: 12px;
+      background: #e9f0f8;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .mock-line.short {
+      width: 45%;
+    }
+    .mock-line.mid {
+      width: 75%;
+    }
+    .mock-card-row {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .mock-card {
+      background: #f4f9ff;
+      flex: 1;
+      border-radius: 14px;
+      padding: 18px 12px;
+    }
+    .mock-card .mock-line {
+      background: #d4e2f2;
+    }
+    .badge {
+      background: #3d6ef9;
+      color: white;
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    /* 特性/服务区块 */
+    .features-section {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 650;
+      margin-bottom: 12px;
+      color: #0b1e32;
+    }
+    .section-sub {
+      color: #5a6f84;
+      margin-bottom: 48px;
+      font-size: 1.1rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 30px;
+    }
+    .feature-card {
+      background: #f9fcff;
+      border-radius: 24px;
+      padding: 30px 20px;
+      border: 1px solid #eef2f6;
+      transition: all 0.2s;
+    }
+    .feature-card:hover {
+      border-color: #c5d8fc;
+      box-shadow: 0 10px 20px -10px rgba(0,0,0,0.05);
+    }
+    .feature-icon {
+      background: #e9f0fe;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #3d6ef9;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      color: #2f455e;
+    }
+
+    /* 步骤指南 */
+    .steps-section {
+      background: #f2f7ff;
+      padding: 80px 0;
+    }
+    .steps-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .step-item {
+      flex: 1 1 180px;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 30px 20px;
+      text-align: left;
+      box-shadow: 0 8px 20px -12px rgba(0,0,0,0.05);
+    }
+    .step-num {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e0e9f5;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+    .step-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .step-item p {
+      color: #496077;
+      font-size: 0.95rem;
+    }
+
+    /* 工具推荐 */
+    .tools-section {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .tool-card {
+      background: #fbfdff;
+      border-radius: 20px;
+      padding: 26px;
+      border: 1px solid #e0e9f2;
+    }
+    .tool-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+    .tool-card a {
+      color: #3d6ef9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* FAQ 区块 */
+    .faq-section {
+      background: #f9fafc;
+      padding: 80px 0;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 24px;
+      border-left: 6px solid #3d6ef9;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    }
+    .faq-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .faq-item p {
+      color: #2a405c;
+    }
+
+    /* 页脚 */
+    .site-footer {
+      background: #0f1e32;
+      color: #cdd9e8;
+      padding: 50px 0 30px;
+    }
+    .footer-cols {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .footer-brand p {
+      max-width: 260px;
+      margin-top: 20px;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      color: #b0c8e0;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .copyright {
+      border-top: 1px solid #2a3e58;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8196ad;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .header-inner {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .main-nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+      }
+      .steps-list {
+        flex-direction: column;
+      }
+      .footer-cols {
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      .feature-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-area">
+        <div class="logo-mark">W</div>
+        <div class="logo-text">个人网站·指南</div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#features">建站方式</a></li>
+          <li><a href="#steps">制作步骤</a></li>
+          <li><a href="#tools">实用工具</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 首屏 -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>个人网站制作<br><span>从零到上线的完整路径</span></h1>
+          <p class="hero-desc">无论你想搭建个人博客、作品集、简历页还是兴趣社群，这里帮你明确域名、建站工具、内容结构、设计思路与发布技巧，让个人网站不再遥远。</p>
+          <div class="btn-group">
+            <a href="#steps" class="btn btn-primary">开始建站流程</a>
+            <a href="#tools" class="btn btn-outline">浏览工具推荐</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="mock-browser">
+            <div class="mock-bar">
+              <span class="mock-dot" style="background:#ff5f57;"></span>
+              <span class="mock-dot" style="background:#febc2e;"></span>
+              <span class="mock-dot" style="background:#28c840;"></span>
+              <span class="mock-url">www.mysite.com</span>
+            </div>
+            <div class="mock-content">
+              <span class="badge">个人品牌</span>
+              <div style="height: 12px;"></div>
+              <div class="mock-line" style="width: 90%;"></div>
+              <div class="mock-line short"></div>
+              <div class="mock-card-row">
+                <div class="mock-card">
+                  <div class="mock-line" style="width: 70%;"></div>
+                  <div class="mock-line short"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-line" style="width: 50%;"></div>
+                  <div class="mock-line short"></div>
+                </div>
+              </div>
+              <div class="mock-line" style="width: 30%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 建站方式特性 -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <h2 class="section-title">选择适合你的个人网站制作路线</h2>
+        <p class="section-sub">根据技术背景与目标，找到最高效的建站方式</p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>静态页面生成器</h3>
+            <p>适合内容创作者。Hugo、Jekyll、Astro 等可生成极速静态网站，配合 Git 管理与免费托管。</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>可视化建站器</h3>
+            <p>Framer、Webflow、WordPress 等，拖拽式设计，无需代码，能快速上线个人作品集或博客。</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>代码完全自定制</h3>
+            <p>掌握 HTML/CSS/JS 后从零构建，灵活度最高。适合想要深度定制与学习实践的个人开发者。</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>一体化托管方案</h3>
+            <p>从域名、服务器到部署用 Netlify/Vercel/GitHub Pages，免费额度足够个人网站起步。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 步骤指南 -->
+    <section class="steps-section" id="steps">
+      <div class="container">
+        <h2 class="section-title">个人网站制作 · 关键六步</h2>
+        <p class="section-sub">清晰规划，少走弯路</p>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num">01</div>
+            <h3>明确目标</h3>
+            <p>博客/作品集/个人介绍？定义访客与内容核心。</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">02</div>
+            <h3>域名与品牌</h3>
+            <p>选择简洁好记的域名，强化个人标识。</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">03</div>
+            <h3>框架搭建</h3>
+            <p>选择建站器或代码框架，搭建本地环境。</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">04</div>
+            <h3>内容设计</h3>
+            <p>规划页面结构，撰写真实有价值的内容。</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">05</div>
+            <h3>视觉打磨</h3>
+            <p>排版、色彩与响应式，确保移动端友好。</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">06</div>
+            <h3>部署上线</h3>
+            <p>托管到平台，连接域名，持续更新。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工具与资源 -->
+    <section class="tools-section" id="tools">
+      <div class="container">
+        <h2 class="section-title">推荐工具与平台</h2>
+        <p class="section-sub">合理利用资源，提高个人网站制作效率</p>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <h4>📝 内容与设计</h4>
+            <p>Notion / Figma / 墨刀</p>
+            <a href="#tools">规划内容与原型</a>
+          </div>
+          <div class="tool-card">
+            <h4>🧰 无代码建站</h4>
+            <p>WordPress / Webflow / Framer</p>
+            <a href="#tools">拖拽快速上线</a>
+          </div>
+          <div class="tool-card">
+            <h4>⚡ 静态站点框架</h4>
+            <p>Astro / Hugo / VitePress</p>
+            <a href="#tools">内容驱动型博客</a>
+          </div>
+          <div class="tool-card">
+            <h4>🚀 部署托管</h4>
+            <p>GitHub Pages / Netlify / Vercel</p>
+            <a href="#tools">免费快速上线</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ 与注意事项 -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <h2 class="section-title">个人网站制作 · 常见问题</h2>
+        <p class="section-sub">关于建站流程、成本与维护的解答</p>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>个人网站每年需要多少费用？</h3>
+            <p>域名约几十元/年，托管可选免费方案（如 GitHub Pages、Netlify）或云服务器数百元。总体可控。</p>
+          </div>
+          <div class="faq-item">
+            <h3>不懂代码能制作个人网站吗？</h3>
+            <p>完全可以。使用 Webflow、Framer 或 WordPress 等可视化工具，无需编写代码即可完成高质量个人站点。</p>
+          </div>
+          <div class="faq-item">
+            <h3>个人网站上线前需要注意什么？</h3>
+            <p>确认内容版权、隐私政策（如含表单）、移动端显示效果、加载速度，以及做好备份。</p>
+          </div>
+          <div class="faq-item">
+            <h3>如何让个人网站被搜索引擎收录？</h3>
+            <p>提交 sitemap 到 Google Search Console / 百度搜索资源平台，并保持内容更新、语义化HTML。</p>
+          </div>
+          <div class="faq-item">
+            <h3>个人网站制作中最耗时的是什么？</h3>
+            <p>内容策划与视觉细节。建议先搭建框架再持续迭代，不追求一步到位。</p>
+          </div>
+          <div class="faq-item">
+            <h3>个人网站和社交主页有什么区别？</h3>
+            <p>个人网站完全掌控设计与内容，沉淀作品和数据，塑造专业形象，是网络自留地。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div class="footer-brand">
+          <h3 style="color:white; font-size:1.5rem;">个人网站·指南</h3>
+          <p>分享个人网站制作知识、灵感与实用教程，帮助你在互联网建立自己的数字阵地。</p>
+        </div>
+        <div class="footer-links">
+          <h4 style="color:white;">快速导航</h4>
+          <ul>
+            <li><a href="#features">建站方式</a></li>
+            <li><a href="#steps">制作步骤</a></li>
+            <li><a href="#tools">工具资源</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 style="color:white;">资源</h4>
+          <ul>
+            <li><a href="#">域名注册</a></li>
+            <li><a href="#">托管平台</a></li>
+            <li><a href="#">设计灵感</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        © 2025 个人网站制作指南 · 保持好奇，持续创造
+      </div>
+    </div>
+  </footer>
+</body>
+  </html>
